@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Formularios HTML.</title>
+         <link rel="stylesheet" href="index.css" type="text/css">
+    </head>
+
+    <body>
+        <h1>Formulario de Información Alta Telefónica.</h1>
+        <form>
+            <!--Formulario Número 1: Datos Personales. Cuadros de texto para introducir nombre completo, Código Postal, Dirección y Ciudad.-->
+            <fieldset span="datos">
+                <legend>Datos Personales:</legend>
+                Nombre: <input type="Text" class="texto" name="Nombre" maxlength="30"/>
+                <br/>
+                Apellidos: <input type="Text" class="texto" name="Apellidos" maxlength="60"/>
+                <br/>
+                Dirección: <input type="Text" class="texto" name="Direccion" maxlength="60"/>
+                <br/>
+                Código Postal: <input type="Text" class="texto" name="CP" pattern="[0-9]" maxlength="5"/>
+                <br/>
+                Localidad: <input type="Text" class="texto" name="Localidad" maxlength="60"/>
+            </fieldset>
+            <br>
+            <!--Formulario Número 2: Tipo de Contrato. Uso de radio buttons para elegir qué tipo de contrato se va a hacer. Uso de un select desplegable para elegir la compañía actual y la nueva.-->
+            <fieldset span="contrato">
+                <legend>Tipo de Contratación:</legend>
+                    <input type="radio" checked="checked" value="NuevoContrato" name="Contrato" id="Nueva"> <label for="Nueva"> Nueva Contratación.</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" value="Portabilidad" name="Contrato" id="Portabilidad"> <label for="Portabilidad"> Portabilidad.</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" value="CambioContrato" name="Contrato" id="Cambio"> <label for="Cambio">Cambio de Contrato.</label>
+                <br/>
+                <br/>  
+                Elija la compañía actual:
+                <select name="CompañiaActual">
+                    <option value="NoCompañia">No tengo compañía</option>
+                    <option value="Movistar">Movistar</option>
+                    <option value="Orange">Orange</option>
+                    <option value="Yoigo">Yoigo</option>
+                    <option value="Vodafone">Vodafone</option>
+                </select>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                En caso de portabilidad, elija la nueva compañía:
+                <select name="NuevaCompañia">
+                    <option value="Movistar">Movistar</option>
+                    <option value="Orange">Orange</option>
+                    <option value="Yoigo">Yoigo</option>
+                    <option value="Vodafone">Vodafone</option>
+                </select>
+            </fieldset>
+            <br>
+            <!--Formulario Número 3: Datos Bancarios. Uso de cuadros de texto para introducir datos bancarios. El cuadro de texto del País tiene modo solo lectura, ya que no se puede seleccionar otro que no sea España.-->
+            <fieldset span="banco">
+                <legend>Datos Bancarios</legend>
+                País: <input type="text" class="texto" name="País" value="ES" readonly="readonly" id="country"/> (Sólo válido ES.)
+                <br/>
+                Control IBAN: <input type="text" class="texto" name="IBAN" id="iban" placeholder="XX" pattern="[0-9]" maxlength="2"/> (Dos Dígitos.)
+                <br/>
+                Entidad: <input type="text" class="texto" name="Entidad" id="entity" placeholder="XXXX" pattern="[0-9]" maxlength="4"/> (Cuatro Dígitos.)
+                <br/>
+                Sucursal: <input type="text" class="texto" name="Sucursal" id="branch" placeholder="XXXX" pattern="[0-9]" maxlength="4"/> (Cuatro Dígitos.)
+                <br/>
+                DC: <input type="text" class="texto" name="DC" placeholder="XX" id="dc" pattern="[0-9]" maxlength="2"/> (Dos Dígitos.)
+                <br/>
+                Cuenta: <input type="text" class="texto" name="Cuenta" placeholder="XXXXXXXXXX" id="account" pattern="[0-9]" maxlength="10"/> (Diez Dígitos.)
+            </fieldset>
+            <br>
+            <!--Formulario Número 4: Datos Estadísticos. Uso de checkbox para seleccionar cómo se conoció la compañia. Deslizable usando range para elegir una valoración. Desplegable de fecha para seleccionar la fecha en la que se ha hecho la encuesta.-->
+            <fieldset class="cuestionario">
+                <legend>Datos Estadistícos - ¿Cómo nos conoció?</legend>
+                <input type="checkbox" name="A través de la TV" value="TV"> A través de la TV <br>
+                <input type="checkbox" name="A través de la radio" value="Radio"> A través de la Radio <br>
+                <input type="checkbox" name="A través de Internet" value="Internet"> A través de Internet <br>
+                <input type="checkbox" name="Otro" value="Otro"> Otro <br>
+                <br>
+                <input type="range" name="Valoracion" min="1" max="5" step="1" id="rango"> Valoración (De 1 a 5) <br>
+                <br>
+                Fecha de la encuesta: <input type="date" name="Fecha" value="2019-01-01" id="fecha">
+            </fieldset>
+            <!--Botones de envio y reseteo de formulario.-->
+            <input type="submit" value="Enviar Datos" span="boton"/>
+            <input type="reset" value="Borrar Datos" span="boton"/>  
+        </form>
+        <!--Botones para enlazar con JS y darles una función onclick.-->
+        <button type="button" class="final" id="valoracion" onclick="valoracion()">Mostrar<br>Valoración</button>
+        <button type="button" class="final" id="cuenta" onclick="ShowAccount()">Mostrar<br>Cuenta</button>
+        <button type="button" class="final" id="semana" onclick="fecha()">Mostrar Dia<br>Semana</button>
+        <script src="index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+legend{
+    color: white;
+    background-color: red;
+}
+
+fieldset{
+    background-color: aqua;
+}
+
+.texto{
+    background-color: yellow;
+    border: 0px;
+}
+
+.final{
+    background-color: pink;
+    border: 0px;
+    border-radius: 5px;
+    width: 100px;
+}
+
+fieldset{
+    border: 0px;
+    border-radius: 5px;
+}
+
+h1{
+    color: blue;
+    text-align: center;
+}
